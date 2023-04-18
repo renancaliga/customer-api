@@ -44,5 +44,6 @@ namespace CustomerAPI.Infra.Data.Repository
 
         public TEntity Select(int id) =>
             _sqlContext.Set<TEntity>().Find(id);
+
     }
 }
