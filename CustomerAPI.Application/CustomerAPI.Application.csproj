@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomerAPI.Domain\CustomerAPI.Domain.csproj" />
+    <ProjectReference Include="..\CustomerAPI.Infra.Data\CustomerAPI.Infra.Data.csproj" />
     <ProjectReference Include="..\CustomerAPI.Service\CustomerAPI.Service.csproj" />
   </ItemGroup>
 
