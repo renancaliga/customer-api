@@ -1,4 +1,10 @@
-﻿using CustomerAPI.Infra.Data.Context;
+﻿using AutoMapper;
+using CustomerAPI.Application.Models;
+using CustomerAPI.Domain.Entities;
+using CustomerAPI.Domain.Interfaces;
+using CustomerAPI.Infra.Data.Context;
+using CustomerAPI.Infra.Data.Repository;
+using CustomerAPI.Service.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace CustomerAPI.Application
@@ -20,6 +26,17 @@ namespace CustomerAPI.Application
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddScoped<IBaseRepository<Customer>, BaseRepository<Customer>>();
+            services.AddScoped<IBaseService<Customer>, BaseService<Customer>>();
+
+            services.AddSingleton(new MapperConfiguration(config =>
+            {
+                config.CreateMap<CreateCustomerModel, Customer>();
+                config.CreateMap<UpdateCustomerModel, Customer>();
+                config.CreateMap<Customer, CustomerModel>();
+            }).CreateMapper());
+
         }
 
         public void Configure(WebApplication app, IWebHostEnvironment environment)

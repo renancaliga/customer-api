@@ -21,13 +21,13 @@ namespace CustomerAPI.Infra.Data.Mapping
                 .HasConversion(prop => prop.ToString(), prop => prop)
                 .IsRequired()
                 .HasColumnName("Name")
-                .HasColumnType("varchar(100");
+                .HasColumnType("varchar(100)");
             
             builder.Property(prop => prop.Size)
                 .HasConversion(prop => prop.ToString(), prop => prop)
                 .IsRequired()
                 .HasColumnName("Size")
-                .HasColumnType("varchar(100");
+                .HasColumnType("varchar(100)");
 
 
         }

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -14,6 +15,12 @@
     <ProjectReference Include="..\CustomerAPI.Domain\CustomerAPI.Domain.csproj" />
     <ProjectReference Include="..\CustomerAPI.Infra.Data\CustomerAPI.Infra.Data.csproj" />
     <ProjectReference Include="..\CustomerAPI.Service\CustomerAPI.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
