@@ -10,8 +10,8 @@
     <div class="container">
 
       <ul>
-        <li v-for="(erro, index) of erros" :key="index">
-          <b>{{ erro }}</b>
+        <li>
+          <b>{{ erros }}</b>
         </li>
       </ul>
 
@@ -77,7 +77,7 @@ export default {
         size: ''
       },
       customers: [],
-      erros: ""
+      erros: ''
     }
   },
   mounted() {
@@ -109,7 +109,7 @@ export default {
           this.erros = "";
         }).catch(e => {
           console.log(e.response)
-          this.erros = e.response;
+          this.erros = e.response.data;
         })
 
       } else {
@@ -143,7 +143,8 @@ export default {
           this.getCustomers();
           this.erros = [];
         }).catch(e => {
-          this.erros = e.response.data;
+          console.log(e.response.data)
+          this.erros = e.response.data
         })
       }
 

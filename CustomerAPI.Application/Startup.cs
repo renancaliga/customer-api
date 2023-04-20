@@ -42,17 +42,19 @@ namespace CustomerAPI.Application
         public void Configure(WebApplication app, IWebHostEnvironment environment)
         {
 
-            var url = "http://localhost:8080/";
-
-
-            app.UseCors(b => b.WithOrigins(url));
-
             if (app.Environment.IsDevelopment())
             {
 
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
 
             app.UseHttpsRedirection();
 

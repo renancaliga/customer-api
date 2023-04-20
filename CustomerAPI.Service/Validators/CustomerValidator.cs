@@ -13,13 +13,12 @@ namespace CustomerAPI.Service.Validators
         public CustomerValidator()
         {
             RuleFor(c => c.Name)
-                .NotEmpty().WithMessage("Por favor, informe o nome.")
-                .NotNull().WithMessage("Por favor, informe o nome.");
+                .NotEmpty().WithMessage("Por favor, informe o nome do cliente.");
+                
 
             var conditions = new List<string>() { "GRANDE", "MEDIA", "PEQUENA" };
             RuleFor(c => c.Size)
-                .NotEmpty().WithMessage("Por favor, informe o nome.")
-                .NotNull().WithMessage("Por favor, informe o nome.")
+                .NotEmpty().WithMessage("Por favor, informe o porte da empresa.")
                 .Must(c => conditions.Contains(c))
                 .WithMessage("Por favor, apenas use: " + String.Join(", ", conditions));
         }

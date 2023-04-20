@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace CustomerAPI.Infra.Data.Repository
 {
@@ -13,6 +14,7 @@ namespace CustomerAPI.Infra.Data.Repository
         : BaseEntity
     {
         protected readonly SqlContext _sqlContext;
+
 
         public BaseRepository(SqlContext sqlContext)
         {
@@ -23,6 +25,7 @@ namespace CustomerAPI.Infra.Data.Repository
         {
             _sqlContext.Set<TEntity>().Add(obj);
             _sqlContext.SaveChanges();
+            
         }
 
         public void Update(TEntity obj)

@@ -36,7 +36,6 @@ namespace CustomerAPI.Infra.Data.Context
                 
             }
 
-
             optionsBuilder.UseSqlServer("Server=localhost,1433;Database=customer;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=True");
 
         }
